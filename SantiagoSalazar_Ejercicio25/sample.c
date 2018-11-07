@@ -33,6 +33,7 @@ void gauss(float *savein){
         double x;
         
 	for(i=0;i<N;i++){
+		
 		u1 = -1 + ((double) rand () / (double)RAND_MAX) * 2;
       	u2 = -1 + ((double) rand () / (double)RAND_MAX) * 2;
       	w = pow (u1, 2) + pow (u2, 2);
@@ -61,20 +62,24 @@ void files(float *takefrom){
 }	
 	
 /* --------CUERPO DEL PROGRAMA------------------------------- */
+/*argc es el numero de argumentos incluyendo el comando con el que corro el programa, argv son mi para*/
 
-int main(){
+int main(int argc, char *argv[]){
+	float *samples;
+
+	N=atoi(argv[1]);
+	mu = atof(argv[2]);
+	sig= atof(argv[3]);
+	/*crea el espacio de samples con los valores dados*/
+ 	samples=malloc(N*sizeof(float));
 	
 	/* hace que el seed sea el tiempo para obtener numeros pseudo aleatorios*/
 	srand(time(NULL));
-
-   	printf( "Indique el numero de muestras, promedio y desviacion estandar :");
-   	scanf("%d %f %f", &N, &mu, &sig);
    	
-   	float *samples;
+ 
 
  	
- 	/*crea el espacio de samples con los valores dados*/
- 	samples=malloc(N*sizeof(float));
+ 	
  	
 
  	gauss(samples);
