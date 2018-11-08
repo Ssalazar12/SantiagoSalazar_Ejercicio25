@@ -1,0 +1,10 @@
+!/bin/bash
+#PBS -l nodes=1:amd:ppn=1,mem=4gb
+#PBS -l wallltim=0:00:00:60
+#PBS -M s.salazar12@uniandes.edu.co
+#PBS -m abe
+#PBS -N ejer25
+
+module load anaconda/python3 
+cd s.salazar12/SantiagoSalazar_Ejercicio25
+make
